@@ -1,6 +1,7 @@
-import 'package:block_study/home_screen/cubit/home_screen_cubit.dart';
+import 'package:block_study/home/cubit/home_screen_cubit.dart';
+import 'package:block_study/home/home_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'home_screen/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main(){
@@ -13,14 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (BuildContext context)=> HomeScreenCubit()),
-        BlocProvider(create: (BuildContext context)=> MyCubit())
-      ],
-      child: const MaterialApp(
-        home: HomeScreen(),
-      ),
+        providers: [
+          BlocProvider(create: (BuildContext context)=> HomeScreenCubit()),
+        ],
+        child: const MaterialApp(
+          home: HomeScreen(),
+        )
     );
   }
 }
-
